@@ -65,23 +65,8 @@ function deleteNote(index) {
 
 let search = document.getElementById("SearchBar");
 
-// search.addEventListener("input", function () {
-//   let searchValue = search.value;
-//   let noteCard = document.getElementsByClassName("noteCard");
-//   // console.log(noteCard);
-//   Array.from(noteCard).forEach(function (element) {
-//     let inner = document.getElementsByTagName("p")[0].innerText;
-//     if (inner.includes(searchValue)) {
-//       element.style.display = "block";
-//     } else {
-//       element.style.display = "none";
-//     }
-//   });
-// });
-
 search.addEventListener("input", function () {
   let inputVal = search.value;
-  // console.log('Input event fired!', inputVal);
   let noteCards = document.getElementsByClassName("noteCard");
   Array.from(noteCards).forEach(function (element) {
     let cardTxt = element.getElementsByTagName("p")[0].innerText;
@@ -90,6 +75,5 @@ search.addEventListener("input", function () {
     } else {
       element.style.display = "none";
     }
-    // console.log(cardTxt);
   });
 });
