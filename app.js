@@ -1,5 +1,3 @@
-console.log("This is app");
-
 showNotes();
 
 // if user adds note then store to localStorage
@@ -35,7 +33,7 @@ function showNotes() {
     <div  class="noteCard my-2 mx-2 card" style="width: 18rem;">
     <div class="card-body">
     <h5 class="card-title">Note ${index + 1}</h5>
-    <p class="card-text">${element}</p>
+    <p class="card-text" id="text-inside">${element}</p>
     <a id="${index}" onclick="deleteNote(this.id)" class="btn btn-primary">Delete Note</a>
     </div>
     </div>`;
@@ -63,10 +61,13 @@ function deleteNote(index) {
   showNotes();
 }
 
+let textInside = document.getElementById("text-inside").innerHTML;
+textInside.toLowerCase();
+console.log(textInside);
 let search = document.getElementById("SearchBar");
 
 search.addEventListener("input", function () {
-  let inputVal = search.value;
+  let inputVal = search.value.toLowerCase();
   let noteCards = document.getElementsByClassName("noteCard");
   Array.from(noteCards).forEach(function (element) {
     let cardTxt = element.getElementsByTagName("p")[0].innerText;
